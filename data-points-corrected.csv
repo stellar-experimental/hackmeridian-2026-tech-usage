@@ -33,4 +33,4 @@
 5 Themes,AI agents,53,Replace,Agent payments: x402 in code 24 of 146 (16%); agent tooling files in 84 (58%),41 (28%),24 (16%),"My keyword re-run gives 38, not 53. Suggest x402 and agent tooling instead."
 5 Themes,DeFi,52,Remove,,,,No clean code signal. My keyword re-run gives 41.
 5 Themes,RWA and tokenization,40,Remove,,,,No clean code signal. My keyword re-run gives 35.
-5 Themes,Privacy and ZK,34,Replace,Privacy contracts or ZK in code: 25 of 146 (17%); 56 name it in form or README (38%),56 (38%),25 (17%),25 = Confidential Tokens (10) + Private Payments (7) + ZK beyond those contracts (11). 9 of the 11 ZK repos have a verifier in a Soroban contract.
+5 Themes,Privacy and ZK,34,Replace,Privacy contracts or ZK in code: 25 of 146 (17%); 56 name it in form or README (38%),56 (38%),25 (17%),25 unique projects = Confidential Tokens (10) + Private Payments (7) minus 3 that use both, plus ZK beyond those contracts (11). 9 of the 11 ZK repos have a verifier in a Soroban contract.
