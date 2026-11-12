@@ -14,7 +14,7 @@ p{margin:0}
 .lede{color:var(--sds-clr-gray-11);font-size:var(--sds-fs-primary);line-height:1.5rem;max-width:65ch}
 .top{display:flex;justify-content:flex-start;align-items:center;gap:.75rem}
 a.toggle{text-decoration:none}
-.dlbtn{line-height:1.25;padding:.4rem .75rem;margin-top:.5rem}
+.dlbtn{display:inline-flex;margin:.5rem 0}
 .chartwrap{display:flex;flex-direction:column;gap:.75rem}
 .lede a{color:var(--sds-clr-lilac-11);text-decoration:underline}
 .notice{background-color:var(--sds-clr-amber-03);border:1px solid var(--sds-clr-amber-06);color:var(--sds-clr-gray-12);border-radius:.5rem;padding:.75rem 1rem;font-size:var(--sds-fs-secondary);line-height:1.375rem}
@@ -80,7 +80,7 @@ th{font-weight:var(--sds-fw-semi-bold);color:var(--sds-clr-gray-11)}
   <details id="closed"><summary>18 submissions could not be found. See which</summary><ul><li>Atram&#x27;s Money Rail <span>(repo private, deleted or moved)</span></li><li>Beagle <span>(repo private, deleted or moved)</span></li><li>Darwin: tokenized real-world-asset baskets on Stellar, with zero-knowledge privacy <span>(repo private, deleted or moved)</span></li><li>Enable on Stellar <span>(repo private, deleted or moved)</span></li><li>Fondealo <span>(repo private, deleted or moved)</span></li><li>Mandla Money P2P Payment <span>(repo private, deleted or moved)</span></li><li>Mint a Moment <span>(GitLab repo that needs a sign-in)</span></li><li>Neko <span>(repo private, deleted or moved)</span></li><li>pay-by-link <span>(repo private, deleted or moved)</span></li><li>Pinakion <span>(repo private, deleted or moved)</span></li><li>Radox Rail <span>(repo private, deleted or moved)</span></li><li>RWA Crowdfund — Stellar <span>(repo private, deleted or moved)</span></li><li>Servido <span>(repo private, deleted or moved)</span></li><li>SLAshed <span>(repo private, deleted or moved)</span></li><li>Tero <span>(repo private, deleted or moved)</span></li><li>Ticket gate <span>(repo private, deleted or moved)</span></li><li>Xoracle <span>(repo private, deleted or moved)</span></li><li>Zimbo (Zimbo Point of Sale) <span>(repo private, deleted or moved)</span></li></ul></details>
   <details>
     <summary>Show as a table</summary>
-    <button id="dlBtn" class="toggle dlbtn" type="button">Download table (CSV)</button>
+    <button id="dlBtn" class="Button Button--tertiary Button--md dlbtn" type="button"><span class="Button__icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg></span>Download CSV</button>
     <div class="tbl"><table id="tbl"></table></div>
   </details>
   <section class="lane" id="method">
@@ -151,7 +151,7 @@ th{font-weight:var(--sds-fw-semi-bold);color:var(--sds-clr-gray-11)}
     box.appendChild(head);box.appendChild(body);host.appendChild(box);
   });
   var tbl=document.getElementById("tbl");
-  var thead=el("thead"),tr0=el("tr");["Lane","Tool","Intent","Code","Projects with code","Intent only (not in code)"].forEach(function(h){tr0.appendChild(el("th",null,h))});thead.appendChild(tr0);tbl.appendChild(thead);
+  var thead=el("thead"),tr0=el("tr");["Lane","Tool","Intent","Code","Projects (Code)","Projects (Intent)"].forEach(function(h){tr0.appendChild(el("th",null,h))});thead.appendChild(tr0);tbl.appendChild(thead);
   var tb=el("tbody");
   function names(list){
     var td=el("td","names");
@@ -164,7 +164,7 @@ th{font-weight:var(--sds-fw-semi-bold);color:var(--sds-clr-gray-11)}
   tbl.appendChild(tb);
   function csvCell(v){v=String(v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v}
   function buildCSV(){
-    var out=[["Lane","Tool","Intent (of 146)","Intent %","Code (of 146)","Code %","Projects with code","Intent only (not in code)"]];
+    var out=[["Lane","Tool","Intent (of 146)","Intent %","Code (of 146)","Code %","Projects (Code)","Projects (Intent)"]];
     LANES.forEach(function(l){l.rows.forEach(function(r){out.push([l.name,r.t,r.i,pct(r.i)+"%",r.c,pct(r.c)+"%",r.nc.join("; "),r.nm.join("; ")])})});
     return "﻿"+out.map(function(row){return row.map(csvCell).join(",")}).join("\r\n")+"\r\n";
   }
